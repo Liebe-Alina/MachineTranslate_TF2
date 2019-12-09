@@ -90,7 +90,7 @@ def get_batch_data():
 
 
 def get_test_data():
-    Src, Tar, a, b = load_data('./data/newstest2013.de', './data/newstest2013.en')
+    Src, Tar, a, b = load_data('./data/newstest2016.de', './data/newstest2016.en')
     Tar = tf.convert_to_tensor(Tar, tf.int32)
     Src = tf.convert_to_tensor(Src, tf.int32)
     input_queues = tf.data.Dataset.from_tensor_slices(Src)

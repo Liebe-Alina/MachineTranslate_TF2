@@ -142,19 +142,19 @@ def translate(sentence, plot=''):
 
     print('\nInput: {}'.format(sentence))
     print('\nPredicted translation: {}'.format(predicted_sentence))
-    print('\n The bleu score is ', sentence_bleu(sentence.split(), predicted_sentence.split()))
     if plot:
         plot_attention_weights(attention_weights, sentence, result, plot)
 
 
 if __name__ == '__main__':
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-    flag = 0
+    flag = 1
     if flag == 1:
         while flag:
             src_language = input('Please input the sentence you want to translate:')
-            translate(src_language, plot='decoder_layer4_block2')
-            flag = int(input('Do you want to continue? 0 for no/1 for yes'))
+            translate(src_language)
+            flag = int(input('Do you want to continue? \n0 for no & 1 for yes'))
         print("***************************Thanks for your using.***************************")
     elif flag == 0:
-        translate('Es hat sich als das längste Wesen im Meer erwiesen.')
+        translate('Heute lernte David das vertiefte Lernen für maschinelle Übersetzung und er glaubt, dass es ihm gut geht..', plot='decoder_layer4_block2')
+        print('The true Translation is: Today, David learned about deep learning for machine translation, and he thinks he is doing well.')
